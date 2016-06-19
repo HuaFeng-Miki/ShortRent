@@ -13,11 +13,8 @@ public class ManagerDao extends BaseHibernateDAO{
 	throws Exception{
 		Session session = HibernateSessionFactory.getSession();
 		session.beginTransaction();
-		// System.out.println("no");
 		List list = session.createQuery("from Manager ma where ma.username=:u and ma.password=:p")
 				.setString("u", username).setString("p", password).list();
-		
-		System.out.println("管理员存在数量为:" + list.size());
 		session.getTransaction().commit();
 		HibernateSessionFactory.closeSession();
 		
@@ -30,7 +27,12 @@ public class ManagerDao extends BaseHibernateDAO{
 	}
 	// 获取管理员账号
 	public List getByManagername(String username) {
-		return getSession().createQuery("from Manager m where m.username=:u")
+		Session session = HibernateSessionFactory.getSession();
+		session.beginTransaction();
+		List list = session.createQuery("from Manager m where m.username=:u")
 				.setString("u", username).list();
+		session.getTransaction().commit();
+		HibernateSessionFactory.closeSession();
+		return list;
 	}
 }

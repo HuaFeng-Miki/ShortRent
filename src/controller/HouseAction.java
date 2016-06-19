@@ -43,12 +43,20 @@ public class HouseAction extends ActionSupport{
 		return SUCCESS;
 	}
 	
-	// 添加房屋信息
+	// 创建房屋
+	public String createHouse() throws Exception{
+		house.setState(1L);
+		hs.addHouse(house);
+		return SUCCESS;
+	}
+	
+	// 发布房屋信息
 	public String add() throws Exception{
 		hs.addHouse(house);
 		System.out.println("House add");
 		return SUCCESS;
 	}
+	
 	// 删除房屋信息
 	public String del() throws Exception{
 		hs.del(hId);
@@ -65,6 +73,11 @@ public class HouseAction extends ActionSupport{
 			ActionContext.getContext().put("pager", house);
 			return SUCCESS;
 		}
+	}
+	public String releaseHouse() throws Exception{
+		
+		
+		return SUCCESS;
 	}
 	public long getpId() {
 		return pId;

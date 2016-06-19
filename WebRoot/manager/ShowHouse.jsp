@@ -135,12 +135,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  </tr>
    	  <br />
    	  
-   	  <tr>
-   	  	<td>全额退款日：</td>
-   	  	<td>${pager.refundday}</td>
-   	  </tr>
-   	  <br />
-   	  
    	   <tr>
    	  	<td>付款规则：</td>
    	  	<td>${pager.payrule}</td>
