@@ -4,7 +4,7 @@
   <head>
     <title>房屋租借系统  - 首页</title>
   </head>
-  
+
   <body>
    	房屋租借系统欢迎您，现在时间是：<%=new Date()%>
   </body>

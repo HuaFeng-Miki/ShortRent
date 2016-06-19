@@ -1,0 +1,192 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+nav {
+  width: 100%;
+  height: 50px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px #aaa;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  position: fixed;
+  z-index: 10;
+}
+body {
+  background-color: #eee;
+  min-width: 765px;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+nav h1 {
+  float: left;
+  line-height: 50px;
+  margin-left: 50px;
+  color: crimson;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0 20px;
+  cursor: default;
+}
+nav a,
+nav p {
+  float: right;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 50px;
+  color: #333;
+  padding: 0 20px;
+  border-left: 1px solid #ccc;
+}
+nav a:visited,
+nav p:visited {
+  color: #333;
+}
+nav a:hover,
+nav p:hover {
+  border-bottom: inset 3px crimson;
+}
+nav p {
+  cursor: default;
+}
+.content {
+  background-color: #fff;
+  width: 90%;
+  padding-top: 50px;
+  margin: 0 auto;
+}
+#index-bg {
+  width: 100%;
+  height: calc(100vh -  50px);
+  background-image: url("../images/index-bg-1.jpg");
+  background-size: cover;
+}
+#index-bg h1 {
+  color: #fff;
+  text-shadow: 1px 1px #333;
+  font-size: 72px;
+  line-height: 92px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  text-align: center;
+  cursor: default;
+  padding-top: 10vh;
+}
+.wrapper {
+  width: 70%;
+  background-color: #fff;
+  margin: -30vh auto 0;
+  padding: 50px;
+}
+.search {
+  margin: 0 auto;
+  font-size: 24px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+}
+.search label {
+  float: left;
+  font-size: 26px;
+  line-height: 40px;
+}
+.search input {
+  outline: none;
+  border: 1px solid #ccc;
+  width: calc(100% - 550px);
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+  color: #aaa;
+  float: left;
+  margin-left: 20px;
+  font-size: 20px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+}
+.search button {
+  background-color: crimson;
+  padding: 0 20px;
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid #a12;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  font-size: 20px;
+  font-family: "Microsoft YaHei UI", sans-serif;
+}
+.search button:hover {
+  background-color: #d24;
+  cursor: pointer;
+}
+.show {
+  padding: 50px 50px 0;
+}
+.show .img-wrapper {
+  width: 45%;
+  height: 200px;
+  margin: 10px 2%;
+  float: left;
+  overflow: hidden;
+  padding: 5px;
+}
+.show .img-wrapper:hover {
+  box-shadow: 0 0 15px #aaa;
+}
+.show img {
+  width: 100%;
+  height: 100%;
+}
+.intro {
+  overflow: hidden;
+  width: 90%;
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Microsoft YaHei UI", sans-serif;
+}
+#intro-block1 {
+  width: 40%;
+  height: 120px;
+  float: left;
+  padding-top: 30px;
+}
+#intro-block1 p {
+  width: 50%;
+  float: right;
+}
+#intro-block2 {
+  width: 20%;
+  height: 120px;
+  float: left;
+  padding: 30px 20px 0;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+#intro-block3 {
+  width: 40%;
+  height: 120px;
+  float: left;
+  padding-top: 30px;
+}
+#intro-block3 p {
+  width: 50%;
+  float: left;
+}
+#intro-block3 img {
+  float: left;
+  padding-left: 20px;
+}
+footer {
+  background-color: #223;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: #fff;
+  font-family: "Microsoft YaHei UI", sans-serif;
+  padding-top: 30px;
+}
