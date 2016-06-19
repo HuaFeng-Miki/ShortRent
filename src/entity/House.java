@@ -43,12 +43,10 @@ public class House implements java.io.Serializable {
 	private String facility;
 	private Long minday;
 	private Long maxday;
-	private Long refundday;
 	private String payrule;
 	private Date createtime;
 	private Long state;
 
-	
 	// Constructors
 
 	/** default constructor */
@@ -62,7 +60,7 @@ public class House implements java.io.Serializable {
 			String shotcut3, Long guestnum, Long bednum, Long bedroomnum,
 			Long roomnum, Long bedtype, Long toiletnum, String roomdesc,
 			String userule, String facility, Long minday, Long maxday,
-			Long refundday, String payrule, Date createtime, Long state) {
+			String payrule, Date createtime, Long state) {
 		this.userId = userId;
 		this.name = name;
 		this.renttype = renttype;
@@ -87,7 +85,6 @@ public class House implements java.io.Serializable {
 		this.facility = facility;
 		this.minday = minday;
 		this.maxday = maxday;
-		this.refundday = refundday;
 		this.payrule = payrule;
 		this.createtime = createtime;
 		this.state = state;
@@ -319,15 +316,6 @@ public class House implements java.io.Serializable {
 
 	public void setMaxday(Long maxday) {
 		this.maxday = maxday;
-	}
-
-	@Column(name = "refundday")
-	public Long getRefundday() {
-		return this.refundday;
-	}
-
-	public void setRefundday(Long refundday) {
-		this.refundday = refundday;
 	}
 
 	@Column(name = "payrule", length = 200)

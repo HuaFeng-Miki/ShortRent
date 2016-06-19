@@ -37,6 +37,11 @@ public class UserService {
 		return dao.search(id);
 	}
 	
+	// 更新用户信息
+	public void update(User user) throws Exception{
+		dao.update(user);
+	}
+	
 	public static void main(String[] args) throws Exception {
 		UserService service = new UserService();
 		

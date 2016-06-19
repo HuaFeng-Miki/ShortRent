@@ -58,14 +58,14 @@
 			<result name="success">/user/usermain.jsp
 			</result>
 		</action>
-		<action name="modify" class="controller.UserAction" method="modify">
+		<action name="UserInfoModify" class="controller.UserAction" method="UserInfoModify">
 			<result name="success">/user/usermain.jsp
 			</result>
 		</action>
 		
-		<action name="userpwdmodify" class="controller.UserAction" method="userpwdmodify">
-			<result name="success">/user/usermain.jsp
-			</result>
+		<action name="UserPwdModify" class="controller.UserAction" method="UserPwdModify">
+			<result name="success">/user/usermain.jsp</result>
+			<result name="error">/user/userpwdmodify.jsp</result>
 		</action>
 		
 		<action name="*" class="controller.UserAction" method="{1}">
@@ -82,7 +82,7 @@
 		</action>
 		
 		<action name="createHouse" class="controller.HouseAction" method="createHouse">
-			<result name="success">/house/createHouse.jsp</result>
+			<result name="success">/house/releaseHouse.jsp</result>
 		</action>
 		
 		<action name="myHouse" class="controller.HouseAction" method="myHouse">

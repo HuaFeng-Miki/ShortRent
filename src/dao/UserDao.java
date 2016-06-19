@@ -42,6 +42,9 @@ public class UserDao extends BaseHibernateDAO{
 		super.del(id,User.class);
 	}
 	
+	public void update(User user)throws Exception{
+		super.update(user);
+	} 
 	// 查询用户信息
 	public User search(long id) throws Exception{
 		return (User)super.get(id, User.class);

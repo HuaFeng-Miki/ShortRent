@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  
    	  <tr>
    	  	<td>使用规则:</td>
-   	  	<td>${pager.rule}</td>
+   	  	<td>${pager.userule}</td>
    	  </tr>
    	  <br />
    	    
@@ -132,12 +132,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  <tr>
    	  	<td>最多天数：</td>
    	  	<td>${pager.maxday}</td>
-   	  </tr>
-   	  <br />
-   	  
-   	  <tr>
-   	  	<td>全额退款日：</td>
-   	  	<td>${pager.refundday}</td>
    	  </tr>
    	  <br />
    	  

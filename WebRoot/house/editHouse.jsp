@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@taglib prefix="s" uri="/struts-tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
@@ -37,13 +37,11 @@
 				<div id="logo">
 					<a href="index.jsp"><img src="images/logo.png" alt="" /> </a>
 				</div>
-				<nav>
 				<ul>
 					<li>
 						<a href="user_view_page.jsp">放弃修改</a>
 					</li>
 				</ul>
-				</nav>
 				<div class="clearfloat"></div>
 			</div>
 		</div>

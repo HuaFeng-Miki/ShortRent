@@ -30,7 +30,7 @@ public class HouseDao extends BaseHibernateDAO{
 	
 	// 房屋具体信息
 	public House search(long id) throws Exception{
-		return (House)super.search(id, House.class);
+		return (House)super.get(id, House.class);
 	}
 	
 	public Pagination getPager(int currentPageNum,int pageSize){
