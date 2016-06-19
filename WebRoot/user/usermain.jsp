@@ -1,0 +1,83 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+	<head>
+		<title>${loginUser.username}欢迎来到房屋租借网</title>
+	</head>
+
+
+	<body>
+
+		<div>
+				<ul>
+						<li>
+							<font color="red">${loginUser.username },欢迎您！</font>
+						</li>
+						<li>
+								<a href="/ShortRent/actions/logout">注销</a>
+						</li>
+				</ul>
+		</div>
+		<div>
+			<h3>我是房东</h3>
+			<ul>
+						<li>
+								<a href="/ShortRent/actions/house/releaseHouse">发布房屋</a>
+						</li>
+						<li>
+								<a href="/ShortRent/actions/order/pendingOrder">受理订单</a>	
+						</li>
+						<li>
+								<a href="/ShortRent/actions/house/myHouse">我的房屋</a>
+						</li>
+						<li>
+								<a href="/ShortRent/actions/house/createHouse">创建房屋</a>
+						</li>
+				</ul>
+		</div>
+		<div>
+			<h3>我是房客</h3>
+			<ul>
+						<li>
+							<a href="/ShortRent/actions/order/newOrder">待受理订单</a>
+						</li>
+						<li>
+							<a href="/ShortRent/actions/dealOrder/dealOrder">已受理订单</a>	
+						</li>
+				</ul>
+		</div>
+		<div>
+			<h3>交易记录</h3>
+			<ul>
+						<li>
+								<a href="#">成交订单</a>
+						</li>
+						<li>
+								<a href="#">交易记录</a>
+						</li>
+				</ul>
+		</div>
+		<div>
+			<h3>查询统计</h3>
+			<ul>
+						<li>
+							<a href="#">房屋统计</a>
+						</li>
+						<li>
+							<a href="#">订单统计</a>
+						</li>
+				</ul>
+		</div>
+		<%@include file="/inc/foot.jsp"%>
+	</body>
+</html>

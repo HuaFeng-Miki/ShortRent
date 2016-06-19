@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<!-- 登录用的package -->
+	<package name="ad" namespace="/actions" extends="struts-default">
+		<action name="login" class="controller.LoginAction" method="login">
+			<result name="input">/login.jsp</result>
+			<result name="manager">/manager/main.jsp</result>
+			<result name="user">/user/usermain.jsp</result>
+		</action>
+		<action name="logout" class="controller.LogoutAction" method="logout">
+			<result name="success">/login.jsp</result>
+		</action>
+	</package>
+	
+	<!--房屋管理的的package -->
+	<package name="cp" namespace="/actions/manager/house" extends="struts-default">
+		<action name="showPage" class="controller.HouseAction" method="showPage">
+			<result name="success">/manager/HousePage.jsp</result>
+		</action>
+		<action name = "detail" class ="controller.HouseAction" method="detail">
+			<result name="success">/manager/ShowHouse.jsp</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">showPage</param>
+			</result>
+		</action>
+		<action name="*" class="controller.HouseAction" method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showPage</param>
+			</result>
+		</action>
+	</package>
+	
+	<!--用户管理的的package -->
+	<package name="st" namespace="/actions/manager/user" extends="struts-default">
+		<action name="showPage" class="controller.UserAction" method="showPage">
+			<result name="success">/manager/UserPage.jsp
+			</result>
+		</action>
+		<action name="del" class="controller.UserAction" method="del">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showPage</param>
+			</result>
+		</action>
+		<action name="detail" class="controller.UserAction" method="detail">
+			<result name="success">/manager/ShowUser.jsp
+			</result>
+			<result name="error" type="redirectAction">
+				<param name="actionName">showPage</param>
+			</result>
+		</action>
+	</package>
+	
+	<!--用户个人的的package -->
+	<package name="01" namespace="/actions/user" extends="struts-default">
+		<action name="showPage" class="controller.UserAction" method="showPage">
+			<result name="success">/user/usermain.jsp
+			</result>
+		</action>
+		<action name="modify" class="controller.UserAction" method="modify">
+			<result name="success">/user/usermain.jsp
+			</result>
+		</action>
+		
+		<action name="userpwdmodify" class="controller.UserAction" method="userpwdmodify">
+			<result name="success">/user/usermain.jsp
+			</result>
+		</action>
+		
+		<action name="*" class="controller.UserAction" method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">showPage</param>
+			</result>
+		</action>
+	</package>
+	
+	<!--房屋的的package -->
+	<package name="02" namespace="/actions/house" extends="struts-default">
+		<action name="releaseHouse" class="controller.HouseAction" method="releaseHouse">
+			<result name="success">/house/releaseHouse.jsp</result>
+		</action>
+		
+		<action name="createHouse" class="controller.HouseAction" method="createHouse">
+			<result name="success">/house/createHouse.jsp</result>
+		</action>
+		
+		<action name="myHouse" class="controller.HouseAction" method="myHouse">
+			<result name="success">/house/myHouse.jsp</result>
+		</action>
+	</package>
+	
+	<!--订单的的package -->
+	<package name="03" namespace="/actions/order" extends="struts-default">
+		<action name="newOrder" class="controller.OrderAction" method="newOrder">
+			<result name="success">/order/newOrder.jsp</result>
+		</action>
+		
+		<action name="pendingOrder" class="controller.OrderAction" method="pendingOrder">
+			<result name="success">/order/pendingOrder.jsp</result>
+		</action>
+	</package>
+	
+	<!--预定订单的的package -->
+	<package name="04" namespace="/actions/dealOrder" extends="struts-default">
+		<action name="dealOrder" class="controller.DealOrderAction" method="dealOrder">
+			<result name="success">/order/dealOrder.jsp</result>
+		</action>
+	</package>
+</struts>    
