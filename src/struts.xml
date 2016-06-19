@@ -58,12 +58,12 @@
 			<result name="success">/user/usermain.jsp
 			</result>
 		</action>
-		<action name="modify" class="controller.UserAction" method="modify">
+		<action name="UsersInfoModify" class="controller.UserAction" method="UsersInfoModify">
 			<result name="success">/user/usermain.jsp
 			</result>
 		</action>
 		
-		<action name="userpwdmodify" class="controller.UserAction" method="userpwdmodify">
+		<action name="UserPwdModify" class="controller.UserAction" method="UserPwdModify">
 			<result name="success">/user/usermain.jsp
 			</result>
 		</action>

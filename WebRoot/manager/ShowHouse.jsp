@@ -113,7 +113,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  
    	  <tr>
    	  	<td>使用规则:</td>
-   	  	<td>${pager.rule}</td>
+   	  	<td>${pager.userule}</td>
    	  </tr>
    	  <br />
    	    

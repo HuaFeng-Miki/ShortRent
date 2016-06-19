@@ -66,7 +66,7 @@
 		<dir>
 			<font color="red">${message}</font>
 		</dir>
-		<form action="/ShortRent/actions/user/userpwdmodify" method="post" onsubmit="return checkpwd();">
+		<form action="/ShortRent/actions/user/UserPwdModify" method="post" onsubmit="return checkpwd();">
 			<div class="contentBody">
 				<div class="cBlock">
 					<li>用户名：${user.uname}</li>

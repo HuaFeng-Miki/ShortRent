@@ -24,6 +24,12 @@
 							<font color="red">${loginUser.username },欢迎您！</font>
 						</li>
 						<li>
+							<a href = "/ShortRent/user/usermodify.jsp">修改个人信息</a>
+						</li>
+												<li>
+							<a href = "/ShortRent/user/userpwdmodify.jsp">修改密码</a>
+						</li>
+						<li>
 								<a href="/ShortRent/actions/logout">注销</a>
 						</li>
 				</ul>

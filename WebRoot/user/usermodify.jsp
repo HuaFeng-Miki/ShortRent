@@ -77,7 +77,7 @@
 		<dir>
 			<p color="red">${message}</p>
 		</dir>
-		<form action="/ShortRent/actions/user/modify" method="post"
+		<form action="/ShortRent/actions/user/UsersInfoModify" method="post"
 			onsubmit="return checkupdate()" enctype="multipart/form-data">
 			<div class="contentBody">
 					用户名：${loginUser.username}
