@@ -11,6 +11,7 @@ nav {
   font-family: "Microsoft YaHei UI", sans-serif;
   position: fixed;
   z-index: 10;
+  top: 0;
 }
 body {
   background-color: #eee;

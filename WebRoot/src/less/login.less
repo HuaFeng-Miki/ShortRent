@@ -1,0 +1,119 @@
+@import "basic.less";
+nav h1 {
+  float: left;
+  line-height: @navHeight;
+  margin-left: 50px;
+  color: crimson;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+  padding: 0 20px;
+  cursor: default;
+}
+nav a, nav p {
+  float: right;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: @navHeight;
+  color: #333;
+  padding: 0 20px;
+  border-left: 1px solid #ccc;
+  &:visited {
+    color: #333;
+  }
+  &:hover {
+    border-bottom: inset 3px crimson;
+  }
+}
+nav p {
+  cursor: default;
+}
+body {
+  background-image: url("../images/index-bg-2.jpg");
+  background-size: cover;
+}
+
+.content {
+  background-color: rgba(255, 255, 255, 0.7);
+  width: 90%;
+  padding-top: @navHeight;
+  margin: 80px auto 0;
+  min-height: 100vh;
+  overflow: hidden;
+  h1 {
+    color: #fff;
+    text-shadow: 1px 1px #333;
+    font-size: 72px;
+    line-height: 92px;
+    font-family: @fontYaHei;
+    text-align: center;
+    cursor: default;
+    padding-top: 10vh;
+  }
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px #333;
+  font-size: 48px;
+  line-height: 56px;
+  font-family: @fontYaHei;
+  cursor: default;
+  span {
+    background-color: crimson;
+    padding: 0 20px;
+  }
+}
+
+form {
+  background-color: #fff;
+  box-shadow: 0 0 15px #aaa;
+  width: 500px;
+  margin: 50px auto;
+  padding: 50px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+label {
+  font-weight: bold;
+  font-size: 18px;
+  font-family: @fontYaHei;
+}
+input {
+  width: 400px;
+  height: 40px;
+  border-radius: 5px;
+  outline: none;
+  border: solid 1px #ccc;
+  padding-left: 10px;
+  margin: 10px 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  line-height: 40px;
+}
+input:hover, input:active {
+  border-color: #66afe9;
+  box-shadow: 0 0 1px 1px #66afe9;
+}
+button {
+  background-color: #33acfe;
+  color: #fff;
+  outline: none;
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
+  float: right;
+  margin: 0 10px;
+  border: none;
+  border-bottom: solid 3px #119adc;
+}
+button:active {
+  border: none;
+}
