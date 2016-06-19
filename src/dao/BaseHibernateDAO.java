@@ -179,10 +179,4 @@ public class BaseHibernateDAO {
 		System.out.println("yes");
 		return pager;
 	}
-	
-//	public static void main(String[] args) {
-//		BaseHibernateDAO dao = new BaseHibernateDAO();
-////		System.out.println(dao.getClass().getSimpleName());
-//		System.out.println(dao.getRowCount(Student.class));
-//	}
 }

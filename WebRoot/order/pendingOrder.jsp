@@ -1,28 +1,28 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - 房主处理订单</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前用户：${loginUser.username }</p>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>My JSP 'orderState.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-
-  </head>
-  
-  <body>
-    This is my JSP page. <br>
-  </body>
+    <h2><span>房主处理订单 </span></h2>
+    <div class="list-wrapper">
+        
+    </div>
+</div>
+</body>
 </html>
+

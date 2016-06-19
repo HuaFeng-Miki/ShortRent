@@ -7,44 +7,35 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-	<head>
-		<base href="<%=basePath%>">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - 用户信息</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前管理员：${loginUser.username }</p><a href="/ShortRent/actions/logout">注销</a>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
 
-		<title>管理员：房屋信息</title>
-		
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-		<meta http-equiv="description" content="This is my page">
-	<div class="logoContainer">
-		<div class="logo">
-			<div id="logo">
-				<a href="index.jsp"><img src="images/logoHouse.png" alt="" />
-				</a>
-			</div>
-			<nav>
-				<ul>
-					<li class="active">
-						管理选项
-					</li>
-					<li class="active">
-						当前管理员: ${loginUser.username }
-					</li>
-					<li>
-						<a href="/ShortRent/manager/main.jsp">返回管理选择界面</a>
-					</li>
-				</ul>
-			</nav>
-		<div class="clearfloat"></div>
-		</div>
-	</div>
-	</head>
-
-	<body>
-		<table>
+    <h2><span>用户信息 </span></h2>
+    <div class="list-wrapper">
+           <ul>
+				<li class="active">
+					管理选项
+				</li>
+				<li class="active">
+					当前管理员: ${loginUser.username }
+				</li>
+				<li>
+					<a href="/ShortRent/manager/main.jsp">返回管理选择界面</a>
+				</li>
+			</ul>
+			<table>
 			<tr>
 				<th>ID</th>
 				<th>姓名</th>
@@ -82,6 +73,7 @@
 					</c:forEach>	
 			</tbody>
 		</table>
-		<%@include file="/inc/foot.jsp"%>
-	</body>
+    </div>
+</div>
+</body>
 </html>

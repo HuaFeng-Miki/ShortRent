@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-
-	<!-- 登录用的package -->
+	
+	<!-- 注册登录用的package -->
 	<package name="ad" namespace="/actions" extends="struts-default">
 		<action name="login" class="controller.LoginAction" method="login">
 			<result name="input">/login.jsp</result>
@@ -12,6 +12,10 @@
 		<action name="logout" class="controller.LogoutAction" method="logout">
 			<result name="success">/login.jsp</result>
 		</action>
+		<action name="register" class="controller.RegisterAction" method="register">
+			<result name="success">/login.jsp</result>
+			<result name="error">/register.jsp</result>
+		</action>
 	</package>
 	
 	<!--房屋管理的的package -->
@@ -20,7 +24,7 @@
 			<result name="success">/manager/HousePage.jsp</result>
 		</action>
 		<action name = "detail" class ="controller.HouseAction" method="detail">
-			<result name="success">/house/ShowHouse.jsp</result>
+			<result name="success">/manager/ShowHouse.jsp</result>
 			<result name="error" type="redirectAction">
 				<param name="actionName">showPage</param>
 			</result>

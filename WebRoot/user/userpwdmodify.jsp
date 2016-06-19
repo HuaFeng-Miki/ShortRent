@@ -7,30 +7,30 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<base href="<%=basePath%>">
-<title>修改用户信息</title>
+    <meta charset="UTF-8">
+    <title>Short Rent -用户密码修改</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
 </head>
-
 <body>
-	<div class="logoContainer">
-	<div class="logo">
-		<div id="logo">
-			
-		</div>
-		<ul>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/index.jsp">主页</a>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
+
+    <h2><span>用户密码修改 </span></h2>
+    <div class="list-wrapper">
+        <ul>
 			<li><a href="/ShortRent/user/usermain.jsp">放弃修改</a></li>
 			<li><a href="/ShortRent/user/usermodify.jsp">修改信息</a></li>
 			<li><a href=""></a>
 			</li>
 		</ul>
-		<div class="clearfloat"></div>
-	</div>
-	</div>
-	<div class="wrapper">
-		<h1>修改您的短租网账户密码</h1>
+		<h1>修改账户密码</h1>
 		<form action="/ShortRent/actions/user/UserPwdModify" method="post" onsubmit="return checkpwd();">
 			<input type="hidden"  value="${loginUser.id}" name="uId"><p>
 			用户名：${loginUser.username}<br />
@@ -40,9 +40,8 @@
 			<br />
 			<input type="submit" value="提  交" />
 		</form>
-
-		<div class="clearfloat"></div>
-	</div>
-	<%@include file="/inc/foot.jsp"%>
+    </div>
+</div>
 </body>
 </html>
+

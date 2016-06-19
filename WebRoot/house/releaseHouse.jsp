@@ -5,18 +5,24 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - 发布房屋</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/usermain.jsp">用户界面</a>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>发布房屋</title>
-
-  </head>
-  
-  <body>
-   	<table>
+    <h2><span>发布房屋</span></h2>
+    <div class="list-wrapper">
+        <table>
 			<tr>
 				<th>ID</th>
 				<th>房屋名称</th>
@@ -71,5 +77,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</c:forEach>	
 			</tbody>
 		</table>
-  </body>
+    </div>
+</div>
+</body>
 </html>
+

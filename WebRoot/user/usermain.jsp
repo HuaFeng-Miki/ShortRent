@@ -7,18 +7,24 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - 用户选项</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/index.jsp">主页</a>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-
-<html>
-	<head>
-		<title>${loginUser.username}欢迎来到房屋租借网</title>
-	</head>
-
-
-	<body>
-
-		<div>
+    <h2><span>用户选项 </span></h2>
+    <div class="list-wrapper">
+           		<div>
 				<input type="hidden"  value="${loginUser.id}" name="uId" />
 				<ul>
 						<li>
@@ -88,6 +94,7 @@
 						</li>
 				</ul>
 		</div>
-		<%@include file="/inc/foot.jsp"%>
-	</body>
+    </div>
+</div>
+</body>
 </html>

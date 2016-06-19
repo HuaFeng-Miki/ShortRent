@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="GB18030"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -6,139 +8,42 @@
 			+ path + "/";
 %>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-	<head>
-		<base href="<%=basePath%>">
-		<title>ÓÃ»§×¢²á</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - ç”¨æˆ·æ³¨å†Œ</title>
+    <link rel="stylesheet" href="css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <c:if test= "${loginUser.username == null }">
+    	<p>å¸®åŠ©çƒ­çº¿ 800-820-8820</p><a href="/ShortRent/login.jsp">ç™»é™†</a><a href="/ShortRent/index.jsp">ä¸»é¡µ</a>
+    </c:if>
+    <c:if test= "${loginUser.username != null }">
+    	<p>å½“å‰ç”¨æˆ·ï¼š${loginUser.username }</p><a href="/ShortRent/actions/logout">æ³¨é”€</a>
+    </c:if>
+</nav>
+<div class="content">
+    <h1>Welcome to join Short Rent</h1>
 
-
-<script type="text/javascript">
-	 function checkRegister()
-	{
-		
-		var pwd=document.getElementById("pwd").value;
-		if(pwd=="")
-		{
-			alert("ÇëÊäÈëÃÜÂë");
-			return false;
-		}
-		var confirm=document.getElementById("confirm").value;
-		if(confirm=="")
-		{
-			alert("ÇëÊäÈëÈ·ÈÏÃÜÂë");
-			return false;
-		}
-		if(pwd!=confirm)
-		{
-		   alert("Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ");
-		   return false;
-		}
-		
-	   var email=document.getElementById("email").value;
-       var phone=document.getElementById("phone").value;
-    
-       var patrnP=/(^(\d{3,4}-)?\d{7,8})$|(13[0-9]{9})$|(15[0-9]{9})$/; 
-    
-       if(phone=="")
-    {
-        alert("ÁªÏµµç»°²»ÄÜÎª¿Õ");
-        return false;
-    }
-    if(!patrnP.exec(phone)){
-       alert("ÁªÏµµç»°ÊäÈë¸ñÊ½²»ÕıÈ·");
-       return false;
-    }
-       
-    var patrnE=/^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
-    if(email!="" && !patrnE.exec(email))
-    {
-       alert("µç×ÓÓÊÏäÊäÈë¸ñÊ½²»ÕıÈ·");
-       return false;
-    }
-    if(!confirm("È·¶¨£¿")){
-       return false;
-    } 
-     alert("×¢²á³É¹¦£¡");
-    return true ;
-  }
-		
-</script>
-
-		<meta http-equiv="pragma" content="no-cache">
-		<meta http-equiv="cache-control" content="no-cache">
-		<meta http-equiv="expires" content="0">
-		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-		<meta http-equiv="description" content="This is my page">
-		
-		<link href="MyCSS/loginregist.css" rel="stylesheet" type="text/css">
-	
-	<div class="logoContainer">
-		<div class="logo">
-			<div id="logo">
-				<a href="index.jsp"><img src="images/logoHouse.png" alt="" /></a>
-			</div>
-			<nav>
-				<ul>
-					<li class="active">
-						<a href="index.jsp">·µ»ØÊ×Ò³</a>
-					</li>
-					<li class="active">
-						<a href="login.jsp">Ö±½ÓµÇÂ¼</a>
-					</li>
-				</ul>
-			</nav>
-			<div class="clearfloat"></div>
-		</div>
-	</div>
-	</head>
-
-	<body>
-		<div class="wrapper">
-	 	<h1>ÓÃ»§×¢²á</h1>
-		<form action="register" method="post" onsubmit="return checkRegister();">
-			<div class="contentBody">
-				<div class="cBlock">
-					<h2>ÕË»§×¢²á</h2>
-					 <ul>
-            			<li><h3>ÓÃ»§Ãû:</h3>
-            			<input type="text" name="user.uname"  style="width:200px; height:30px;" /> &nbsp;<font color="red">${message}</font>
-            			</li>
-						<li><h3>ÃÜÂë:</h3></li>
-            			<input type="password" id="pwd" name="user.upwd"  style="width:200px; height:30px;" />
-            			  
-						<li><h3>È·ÈÏÃÜÂë:</h3></li>
-            			<input  type="password" name="password2" id="confirm"  style="width:200px; height:30px;" />
-            			
-            			<li><h3>µç»°ºÅÂë:</h3></li>
-            			<input type="text" name="user.phone" id="phone"  style="width:200px; height:30px;" />
-            			
-						<li><h3>µç×ÓÓÊÏä:</h3></li>
-            			<input type="text" name="user.email" id="email"  style="width:200px; height:30px;" />   
-            			
-            			   
-            			
-            			<li><a href="agreement.jsp">ÔÄ¶ÁÓÃ»§Ê¹ÓÃĞ­Òé</a></li>
-            			<br>
-            			<br>
-						<input type="submit" value="Ìá½»" style="width:50px; height:30px;" />
-							&nbsp;&nbsp;&nbsp;
-						<input type="reset" value="ÖØÖÃ"  style="width:50px; height:30px;"/>
-						<br>
-						<br>
-						<br>
-					</ul>
-				</div>
-			</div>
-		</form>
-		<div class="clearfloat"></div>
-	</div>
-	
-	<footer>
-    	<p class="copyright">
-        	Copyright &copy; <a href="#">·¿Îİ×â½èÍø</a> | Collect Form <a href="" title="ShortRent">ShortRent</a>
-   		 </p>
-	</footer>
-		
-	</body>
+    <h2><span>æ³¨å†Œæ‚¨çš„è´¦æˆ·</span></h2>
+    <form action="/ShortRent/actions/register" method="post" onsubmit="return checkRegister();">
+        <label for="username">ç”¨æˆ·å</label>
+        <input type="text" id="username" name="user.username"/>
+        <label for="pwd">å¯†ç </label>
+        <input type="password" id="pwd" name="user.password"/>
+        <label for="confirm">ç¡®è®¤å¯†ç </label>
+        <input type="password" id="confirm" name="user.password2"/>
+        <label for="phone">æ‰‹æœºå·ç </label>
+        <input type="text" id="phone" name="user.mobile"/>
+        <label for="email">ç”µå­é‚®ç®±</label>
+        <input type="text" id="email" name="user.email"/>
+        <button type="submit" name="login">æ³¨å†Œ</button>
+        <button type="reset" name="reset">é‡ç½®</button>
+    </form>
+    <script src="/ShortRent/js/register.js"></script>
+</div>
+</body>
 </html>

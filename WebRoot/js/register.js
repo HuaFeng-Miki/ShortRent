@@ -2,16 +2,16 @@ function checkRegister() {
     
     var pwd = document.getElementById("pwd").value;
     if (pwd == "") {
-        alert("è¯·è¾“å…¥å¯†ç ");
+        alert("ÇëÊäÈëÃÜÂë");
         return false;
     }
     var confirm = document.getElementById("confirm").value;
     if (confirm == "") {
-        alert("è¯·è¾“å…¥ç¡®è®¤å¯†ç ");
+        alert("ÇëÊäÈëÈ·ÈÏÃÜÂë");
         return false;
     }
     if (pwd != confirm) {
-        alert("ä¸¤æ¬¡è¾“å…¥å¯†ç ä¸ä¸€è‡´");
+        alert("Á½´ÎÊäÈëÃÜÂë²»Ò»ÖÂ");
         return false;
     }
 
@@ -21,22 +21,22 @@ function checkRegister() {
     var patrnP = /(^(\d{3,4}-)?\d{7,8})$|(13[0-9]{9})$|(15[0-9]{9})$/;
 
     if (phone == "") {
-        alert("è”ç³»ç”µè¯ä¸èƒ½ä¸ºç©º");
+        alert("ÁªÏµµç»°²»ÄÜÎª¿Õ");
         return false;
     }
     if (!patrnP.exec(phone)) {
-        alert("è”ç³»ç”µè¯è¾“å…¥æ ¼å¼ä¸æ­£ç¡®");
+        alert("ÁªÏµµç»°ÊäÈë¸ñÊ½²»ÕıÈ·");
         return false;
     }
 
     var patrnE = /^[a-zA-Z0-9_-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
     if (email != "" && !patrnE.exec(email)) {
-        alert("ç”µå­é‚®ç®±è¾“å…¥æ ¼å¼ä¸æ­£ç¡®");
+        alert("µç×ÓÓÊÏäÊäÈë¸ñÊ½²»ÕıÈ·");
         return false;
     }
-    if (!confirm("ç¡®å®šï¼Ÿ")) {
+    if (!confirm("È·¶¨£¿")) {
         return false;
     }
-    alert("æ³¨å†ŒæˆåŠŸï¼");
+    alert("×¢²á³É¹¦£¡");
     return true;
 }

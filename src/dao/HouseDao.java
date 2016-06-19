@@ -98,16 +98,13 @@ public class HouseDao extends BaseHibernateDAO{
 	public Pagination getHouseList(String city,int currentPageNum,int pageSize){
 		long rowCount = this.getRowCount(House.class);
 		Pagination pager = new Pagination(rowCount, currentPageNum, pageSize);
-		List list;
+		List list = null;
 		Session session = HibernateSessionFactory.getSession();
 		Transaction tx = session.beginTransaction();
 		try {
-			list= session.createCriteria(House.class)
-						.add(Property.forName("address").like(city))
-						.setFirstResult((pager.getcurrentPageNum()-1)*pageSize)
-						.setMaxResults(pageSize)
-						.list();
-			tx.commit();
+			list = session.createQuery("from House h where h.address like:city")
+					.setString("city", "%"+city+"%")
+					.list();
 		} catch (RuntimeException re) {
 			throw re;
 		} finally {

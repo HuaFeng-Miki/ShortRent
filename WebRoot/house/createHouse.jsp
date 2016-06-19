@@ -5,19 +5,24 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Short Rent - 创建房屋</title>
+    <link rel="stylesheet" href="/ShortRent/css/login.min.css">
+</head>
+<body>
+<nav>
+    <h1>Short Rent</h1>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/usermain.jsp">用户界面</a>
+</nav>
+<div class="content">
+    <h1>Welcome back to Short Rent</h1>
 
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<html>
-  <head>
-    <base href="<%=basePath%>">
-    
-    <title>创建房屋</title>
-
-  </head>
-  
-  <body>
-    <h2>创建房屋</h2>
-    <form action="/ShortRent/actions/house/createHouse" method="post">
+    <h2><span>创建房屋 </span></h2>
+    <div class="list-wrapper">
+           <form action="/ShortRent/actions/house/createHouse" method="post">
     	<input type="hidden"  value="${loginUser.id}" name="uId"><p>
     	房屋名字：<input name="house.name" type="text"><br />
     	出租类型:
@@ -59,5 +64,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			支付方式：<input name="house.payrule" type="text"><br />
 			<input type="submit" value="提  交" />
     </form>
-  </body>
+    </div>
+</div>
+</body>
 </html>
+

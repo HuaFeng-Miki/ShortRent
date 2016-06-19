@@ -19,7 +19,6 @@ public class HouseAction extends ActionSupport{
 	long uId;
 	String city;
 	HouseService hs = new HouseService();
-	
 	// 分页
 	public String showPage() throws Exception{
 		Pagination pager = hs.getHousePager((int)pId, WebConstant.PAGE_SIZE);
@@ -50,6 +49,7 @@ public class HouseAction extends ActionSupport{
 	
 	// 发布房屋
 	public String release() throws Exception{
+		house = hs.search(hId);
 		hs.releaseHouse(house);
 		return SUCCESS;
 	}
@@ -86,7 +86,8 @@ public class HouseAction extends ActionSupport{
 	
 	// 根据地址查询房屋
 	public String houseList() throws Exception{
-		
+		city = new String(city.getBytes("ISO-8859-1"),"UTF-8");
+		System.out.println("city="+city);
 		Pagination pager = hs.getHouseList(city, (int)pId, WebConstant.PAGE_SIZE);
 		ActionContext.getContext().put("pager", pager);
 		return SUCCESS;
