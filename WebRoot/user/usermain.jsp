@@ -39,13 +39,13 @@
 			<h3>我是房东</h3>
 			<ul>
 						<li>
-								<a href="/ShortRent/actions/house/releaseHouse">发布房屋</a>
+								<a href="/ShortRent/actions/house/releaseHouse?uId=${loginUser.id}">发布房屋</a>
 						</li>
 						<li>
 								<a href="/ShortRent/actions/order/pendingOrder">受理订单</a>	
 						</li>
 						<li>
-								<a href="/ShortRent/actions/house/myHouse">我的房屋</a>
+								<a href="/ShortRent/actions/house/myHouse?uId=${loginUser.id}">我的房屋</a>
 						</li>
 						<li>
 								<a href="/ShortRent/house/createHouse.jsp">创建房屋</a>
@@ -56,10 +56,13 @@
 			<h3>我是房客</h3>
 			<ul>
 						<li>
-							<a href="/ShortRent/actions/order/newOrder">待受理订单</a>
+							<a href="/ShortRent/index.jsp">查找房子</a>
 						</li>
 						<li>
-							<a href="/ShortRent/actions/dealOrder/dealOrder">已受理订单</a>	
+							<a href="/ShortRent/actions/order/newOrder?uId=${loginUser.id}">待受理订单</a>
+						</li>
+						<li>
+							<a href="/ShortRent/actions/order/dealOrder?uId=${loginUser.id}">已受理订单</a>	
 						</li>
 				</ul>
 		</div>

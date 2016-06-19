@@ -34,14 +34,11 @@ public class LoginAction extends ActionSupport{
 	public String login() throws Exception{
 		ManagerService ms = new ManagerService();
 		UserService us = new UserService();
-		System.out.println("yes");
-		System.out.println(username + " " + password);
 		// 管理员
 		if(ms.loginValidated(username, password)){
 			Manager manager  = ms.getByManagername(username);
 			ActionContext.getContext().getSession()
 			.put(WebConstant.LOGIN_USER, manager);
-			System.out.println("manager");
 			return "manager";
 			
 		}else if(us.loginValidated(username, password)){ //用户
@@ -49,11 +46,9 @@ public class LoginAction extends ActionSupport{
 			User user = us.getByUsername(username);
 			ActionContext.getContext().getSession()
 			.put(WebConstant.LOGIN_USER, user);
-			System.out.println("user");
 			return "user";
 		}else{
 			ActionContext.getContext().put("error","0");
-			System.out.println("input");
 			return INPUT;
 		}
 	}

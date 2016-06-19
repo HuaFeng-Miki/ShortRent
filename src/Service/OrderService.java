@@ -1,5 +1,6 @@
 package Service;
 
+import tools.Pagination;
 import dao.OrderDao;
 import entity.Order;
 
@@ -18,4 +19,21 @@ public class OrderService {
 		dao.del(id);
 	}
 	
+	// 获取待处理订单
+	public Pagination getnewOrder(long userId, int courrentPageNum,int pageSize){
+		return dao.getnewOrder(userId, courrentPageNum, pageSize);
+	}
+	
+	// 获取已处理订单
+	public Pagination getdealOrder(long userId, int courrentPageNum,int pageSize){
+		return dao.getdealOrder(userId, courrentPageNum, pageSize);
+	}
+	
+	public Order search(long id) throws Exception{
+		return dao.search(id);
+	}
+	public void cancelOrder(Order order) throws Exception{
+		order.setState(2L);
+		dao.update(order);
+	}
 }

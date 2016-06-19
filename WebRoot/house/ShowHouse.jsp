@@ -17,9 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div>
     	<h3>房屋信息</h3>
-    	
    	  <tr>
    	  	<td>房屋名：</td>
    	  	<td>${pager.name}</td>
@@ -100,16 +98,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  		<c:if test="${pager.bedtype == 3}">高低床</c:if>
    	  	</td>
    	  </tr>
+   	  <br />
    	  
    	  <tr>
    	  	<td>卫生间数：</td>
    	  	<td>${pager.toiletnum}</td>
    	  </tr>
+   	  <br />
    	  
    	  <tr>
    	  	<td>房屋描述：</td>
    	  	<td>${pager.roomdesc}</td>
    	  </tr>
+   	  <br/>
    	  
    	  <tr>
    	  	<td>使用规则:</td>
@@ -152,13 +153,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    	  	<td>
    	  		<c:if test="${p.state==1}">待审核</c:if>
    	  		<c:if test="${p.state==2}">待发布</c:if>
-					<c:if test="${p.state==2}">已通过</c:if> 
-					<c:if test="${p.state==4}">已拒绝</c:if> 
+			<c:if test="${p.state==2}">已通过</c:if> 
+			<c:if test="${p.state==4}">已拒绝</c:if> 
    	  	</td>
    	  </tr>
-   	  <br />
-   	  
-    </div>
-    <a href="/ShortRent/actions/manager/user/showPage">返回</a>
+   	  <br />	
+    <a href="/ShortRent/actions/manager/house/showPage">返回</a>
   </body>
 </html>

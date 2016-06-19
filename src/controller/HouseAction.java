@@ -16,14 +16,14 @@ public class HouseAction extends ActionSupport{
 	House house = new House();
 	long pId;
 	long hId;
+	long uId;
+	String city;
 	HouseService hs = new HouseService();
 	
 	// 分页
 	public String showPage() throws Exception{
-		
 		Pagination pager = hs.getHousePager((int)pId, WebConstant.PAGE_SIZE);
 		ActionContext.getContext().put("pager", pager);
-		System.out.println("House showPage");
 		return SUCCESS;
 	}
 	
@@ -31,7 +31,6 @@ public class HouseAction extends ActionSupport{
 	public String pass() throws Exception{
 		house = hs.search(hId);
 		hs.pass(house);
-		System.out.println("House pass");
 		return SUCCESS;
 	}
 	
@@ -39,32 +38,29 @@ public class HouseAction extends ActionSupport{
 	public String refuse() throws Exception{
 		house = hs.search(hId);
 		hs.refuse(house);
-		System.out.println("House refuse");
 		return SUCCESS;
 	}
 	
 	// 创建房屋
 	public String createHouse() throws Exception{
-		house.setState(1L);
+		house.setUserId(uId);
 		hs.addHouse(house);
 		return SUCCESS;
 	}
 	
-	// 发布房屋信息
-	public String add() throws Exception{
-		hs.addHouse(house);
-		System.out.println("House add");
+	// 发布房屋
+	public String release() throws Exception{
+		hs.releaseHouse(house);
 		return SUCCESS;
 	}
 	
-	// 删除房屋信息
+	// 删除房屋
 	public String del() throws Exception{
 		hs.del(hId);
-		System.out.println("House del");
 		return SUCCESS;
 	}
 	
-	//显示房屋具体信息
+	// 显示房屋
 	public String detail() throws Exception{
 		house = hs.search(hId);
 		if(house == null)
@@ -74,11 +70,43 @@ public class HouseAction extends ActionSupport{
 			return SUCCESS;
 		}
 	}
+	// 待发布的房屋
 	public String releaseHouse() throws Exception{
-		
-		
+		Pagination pager = hs.getReleaseHouse(uId,(int)pId, WebConstant.PAGE_SIZE);
+		ActionContext.getContext().put("pager", pager);
 		return SUCCESS;
 	}
+	
+	// 我的房屋信息
+	public String myHouse() throws Exception{
+		Pagination pager = hs.getMyHouse(uId,(int)pId, WebConstant.PAGE_SIZE);
+		ActionContext.getContext().put("pager", pager);
+		return SUCCESS;
+	}
+	
+	// 根据地址查询房屋
+	public String houseList() throws Exception{
+		
+		Pagination pager = hs.getHouseList(city, (int)pId, WebConstant.PAGE_SIZE);
+		ActionContext.getContext().put("pager", pager);
+		return SUCCESS;
+	}
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public long getuId() {
+		return uId;
+	}
+
+	public void setuId(long uId) {
+		this.uId = uId;
+	}
+
 	public long getpId() {
 		return pId;
 	}

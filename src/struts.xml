@@ -20,7 +20,7 @@
 			<result name="success">/manager/HousePage.jsp</result>
 		</action>
 		<action name = "detail" class ="controller.HouseAction" method="detail">
-			<result name="success">/manager/ShowHouse.jsp</result>
+			<result name="success">/house/ShowHouse.jsp</result>
 			<result name="error" type="redirectAction">
 				<param name="actionName">showPage</param>
 			</result>
@@ -76,22 +76,44 @@
 	</package>
 	
 	<!--房屋的的package -->
-	<package name="02" namespace="/actions/house" extends="struts-default">
-		<action name="releaseHouse" class="controller.HouseAction" method="releaseHouse">
-			<result name="success">/house/releaseHouse.jsp</result>
-		</action>
+	<package name="02" namespace="/actions/house" extends="struts-default">	
 		
 		<action name="createHouse" class="controller.HouseAction" method="createHouse">
 			<result name="success">/house/releaseHouse.jsp</result>
 		</action>
 		
-		<action name="myHouse" class="controller.HouseAction" method="myHouse">
-			<result name="success">/house/myHouse.jsp</result>
+		<action name="releaseHouse" class="controller.HouseAction" method="releaseHouse">
+			<result name="success">/house/releaseHouse.jsp</result>
 		</action>
+		
+		<action name="detail" class="controller.HouseAction" method="detail">
+			<result name="success">/house/ShowHouse.jsp</result>
+		</action>
+		
+		<action name="del" class="controller.HouseAction" method="del">
+			<result name="success" type="redirectAction">
+				<param name="actionName">releaseHouse</param>
+			</result>
+		</action>
+		<action name="release" class="controller.HouseAction" method="release">
+			<result name="success" type="redirectAction">
+				<param name="actionName">releaseHouse</param>
+			</result>
+		</action>
+		<action name="myHouse" class="controller.HouseAction" method="myHouse">
+			<result name="success" >/house/myHouse.jsp</result>
+		</action>
+		
+		<action name="houseList" class="controller.HouseAction" method="houseList">
+			<result name="success" >/house/houseList.jsp</result>
+		</action>
+		
+		
 	</package>
 	
-	<!--订单的的package -->
+	<!--订单的的package  房客-->
 	<package name="03" namespace="/actions/order" extends="struts-default">
+		<!-- 等待受理的订单 -->
 		<action name="newOrder" class="controller.OrderAction" method="newOrder">
 			<result name="success">/order/newOrder.jsp</result>
 		</action>
@@ -99,9 +121,28 @@
 		<action name="pendingOrder" class="controller.OrderAction" method="pendingOrder">
 			<result name="success">/order/pendingOrder.jsp</result>
 		</action>
+
+		<action name="createOrder" class="controller.OrderAction" method="createOrder">
+			<result name="success">/order/newOrder.jsp</result>
+		</action>
+		
+		<action name="cancelOrder" class="controller.OrderAction" method="cancelOrder">
+			<result name="success" type="redirectAction">
+				<param name="actionName">newOrder</param>
+			</result>
+		</action>
+		
+		<action name="deleteOrder" class="controller.OrderAction" method="deleteOrder">
+			<result name="success" type="redirectAction">
+				<param name="actionName">newOrder</param>
+			</result>
+		</action>
+		<action name="dealOrder" class="controller.OrderAction" method="dealOrder">
+			<result name="success">/dealOrder/dealOrder.jsp</result>
+		</action>
 	</package>
 	
-	<!--预定订单的的package -->
+	<!--预定订单的的package  房主-->
 	<package name="04" namespace="/actions/dealOrder" extends="struts-default">
 		<action name="dealOrder" class="controller.DealOrderAction" method="dealOrder">
 			<result name="success">/order/dealOrder.jsp</result>

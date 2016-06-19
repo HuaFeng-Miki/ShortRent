@@ -1,4 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -9,20 +11,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>My JSP 'waitOrder.jsp' starting page</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
-	<meta http-equiv="cache-control" content="no-cache">
-	<meta http-equiv="expires" content="0">    
-	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
-	<meta http-equiv="description" content="This is my page">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
+    <title>未处理订单</title>
+
 
   </head>
   
   <body>
-    This is my JSP page. <br>
+    <table>
+			<tr>
+				<th>ID</th>
+				<th>房屋ID</th>
+				<th>用户ID</th>
+				<th>订单号</th>
+				<th>入住时间</th>
+				<th>退房时间</th>
+				<th>价格</th>
+				<th>订单状态</th>
+			</tr>
+			<tbody>
+				<c:forEach varStatus="s" var="p" items="${pager.list}">
+							<tr>
+								<td>${pager.startRow+s.count-1}</td>
+								<td>${p.houseId}</td>
+								<td>${p.userId}</td>
+								<td>${p.ordernum}</td>
+								<td>${p.checkindate}</td>
+								<td>${p.checkoutdate}</td>
+								<td>${p.total}</td>
+								<td>未处理</td>
+							</tr>
+					</c:forEach>	
+			</tbody>
+		</table>
   </body>
 </html>
