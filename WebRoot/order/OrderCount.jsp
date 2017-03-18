@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Short Rent - 未受理订单</title>
+    <title>Short Rent - 交易记录</title>
     <link rel="stylesheet" href="/ShortRent/css/login.min.css">
 </head>
 <body>
@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="content">
     <h1>Welcome back to Short Rent</h1>
 
-    <h2><span>未受理订单 </span></h2>
+    <h2><span>已受理订单 </span></h2>
     <div class="list-wrapper">
            <table>
 			<tr>

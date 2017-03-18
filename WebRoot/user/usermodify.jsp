@@ -31,15 +31,14 @@
 		<h1>修改账户信息</h1>
 		<form action="/ShortRent/actions/user/UserInfoModify" method="post"
 			onsubmit="return checkupdate()" enctype="multipart/form-data">
-					<input type="hidden"  value="${loginUser.id}" name="uId"><p>
+					<input type="hidden"  value="${loginUser.id}" name="uId">
 					用户名：${loginUser.username}<br />
-					电子邮箱：
-					<input name="email" id="email" value="${loginUser.email}" /><br />
+					电子邮箱：<input name="email" id="email" value="${loginUser.email}" /><br />
 					联系电话：
 					<input name="mobile" id="mobile" value="${loginUser.mobile}" /><br />
 					性别：
-						<s:radio name="sex" list="%{#{'1':'男'}}" value="1" />
-						<s:radio name="sex" list="%{#{'2':'女'}}" value="2" />
+					男<input type="radio" name="sex" value="1" />
+					女<input type="radio" name="sex" value="2" />
 					<br />
 					地 址：
 					<input name="address" id="address" value="${loginUser.address}" size="30" /><br />

@@ -20,6 +20,7 @@ public class Order implements java.io.Serializable {
 
 	private Long id;
 	private Long houseId;
+	private Long houseownerId;
 	private Long userId;
 	private String ordernum;
 	private Date checkindate;
@@ -36,10 +37,11 @@ public class Order implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Order(Long houseId, Long userId, String ordernum, Date checkindate,
-			Date checkoutdate, Long state, Float unitprice, Date ordertime,
-			Float total) {
+	public Order(Long houseId, Long houseownerId, Long userId, String ordernum,
+			Date checkindate, Date checkoutdate, Long state, Float unitprice,
+			Date ordertime, Float total) {
 		this.houseId = houseId;
+		this.houseownerId = houseownerId;
 		this.userId = userId;
 		this.ordernum = ordernum;
 		this.checkindate = checkindate;
@@ -69,6 +71,15 @@ public class Order implements java.io.Serializable {
 
 	public void setHouseId(Long houseId) {
 		this.houseId = houseId;
+	}
+
+	@Column(name = "houseowner_id")
+	public Long getHouseownerId() {
+		return this.houseownerId;
+	}
+
+	public void setHouseownerId(Long houseownerId) {
+		this.houseownerId = houseownerId;
 	}
 
 	@Column(name = "user_id")

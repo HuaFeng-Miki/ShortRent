@@ -15,15 +15,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <nav>
     <h1>Short Rent</h1>
-    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/usermain.jsp">用户界面</a>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/main.jsp">用户界面</a>
 </nav>
 <div class="content">
     <h1>Welcome back to Short Rent</h1>
 
     <h2><span>创建房屋 </span></h2>
-    <div class="list-wrapper">
            <form action="/ShortRent/actions/house/createHouse" method="post">
-    	<input type="hidden"  value="${loginUser.id}" name="uId"><p>
+    	<input type="hidden"  value="${loginUser.id}" name="uId">
     	房屋名字：<input name="house.name" type="text"><br />
     	出租类型:
     		<s:radio name="house.renttype" list="%{#{'1':'整租'}}" value="1" />
@@ -64,7 +63,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			支付方式：<input name="house.payrule" type="text"><br />
 			<input type="submit" value="提  交" />
     </form>
-    </div>
 </div>
 </body>
 </html>

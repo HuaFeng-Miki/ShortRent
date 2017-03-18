@@ -7,7 +7,7 @@
 		<action name="login" class="controller.LoginAction" method="login">
 			<result name="input">/login.jsp</result>
 			<result name="manager">/manager/main.jsp</result>
-			<result name="user">/user/usermain.jsp</result>
+			<result name="user">/user/main.jsp</result>
 		</action>
 		<action name="logout" class="controller.LogoutAction" method="logout">
 			<result name="success">/login.jsp</result>
@@ -18,7 +18,7 @@
 		</action>
 	</package>
 	
-	<!--房屋管理的的package -->
+	<!--管理员 房屋管理的的package -->
 	<package name="cp" namespace="/actions/manager/house" extends="struts-default">
 		<action name="showPage" class="controller.HouseAction" method="showPage">
 			<result name="success">/manager/HousePage.jsp</result>
@@ -36,7 +36,7 @@
 		</action>
 	</package>
 	
-	<!--用户管理的的package -->
+	<!--管理员  用户管理的的package -->
 	<package name="st" namespace="/actions/manager/user" extends="struts-default">
 		<action name="showPage" class="controller.UserAction" method="showPage">
 			<result name="success">/manager/UserPage.jsp
@@ -56,19 +56,19 @@
 		</action>
 	</package>
 	
-	<!--用户个人的的package -->
+	<!--用户  个人信息的的package -->
 	<package name="01" namespace="/actions/user" extends="struts-default">
 		<action name="showPage" class="controller.UserAction" method="showPage">
-			<result name="success">/user/usermain.jsp
+			<result name="success">/user/main.jsp
 			</result>
 		</action>
 		<action name="UserInfoModify" class="controller.UserAction" method="UserInfoModify">
-			<result name="success">/user/usermain.jsp
+			<result name="success">/user/main.jsp
 			</result>
 		</action>
 		
 		<action name="UserPwdModify" class="controller.UserAction" method="UserPwdModify">
-			<result name="success">/user/usermain.jsp</result>
+			<result name="success">/user/main.jsp</result>
 			<result name="error">/user/userpwdmodify.jsp</result>
 		</action>
 		
@@ -79,25 +79,23 @@
 		</action>
 	</package>
 	
-	<!--房屋的的package -->
+	<!--房屋的package -->
 	<package name="02" namespace="/actions/house" extends="struts-default">	
-		
+		<!-- 创建 -->
 		<action name="createHouse" class="controller.HouseAction" method="createHouse">
 			<result name="success">/house/releaseHouse.jsp</result>
 		</action>
-		
+		<!-- 发布 -->
 		<action name="releaseHouse" class="controller.HouseAction" method="releaseHouse">
 			<result name="success">/house/releaseHouse.jsp</result>
 		</action>
-		
+		<!-- 详细内容 -->
 		<action name="detail" class="controller.HouseAction" method="detail">
 			<result name="success">/house/ShowHouse.jsp</result>
 		</action>
-		
+		<!-- 删除 -->
 		<action name="del" class="controller.HouseAction" method="del">
-			<result name="success" type="redirectAction">
-				<param name="actionName">releaseHouse</param>
-			</result>
+			<result name="success">/user/main.jsp</result>
 		</action>
 		<action name="release" class="controller.HouseAction" method="release">
 			<result name="success" type="redirectAction">
@@ -107,25 +105,25 @@
 		<action name="myHouse" class="controller.HouseAction" method="myHouse">
 			<result name="success" >/house/myHouse.jsp</result>
 		</action>
-		
 		<action name="houseList" class="controller.HouseAction" method="houseList">
 			<result name="success" >/house/houseList.jsp</result>
 		</action>
-		
-		
 	</package>
 	
-	<!--订单的的package  房客-->
+	<!--订单的的package  -->
 	<package name="03" namespace="/actions/order" extends="struts-default">
 		<!-- 等待受理的订单 -->
+		<!-- 房客 未受理的订单 -->
 		<action name="newOrder" class="controller.OrderAction" method="newOrder">
 			<result name="success">/order/newOrder.jsp</result>
 		</action>
 		
+		<!-- 房主 未处理房客下的订单 -->
 		<action name="pendingOrder" class="controller.OrderAction" method="pendingOrder">
 			<result name="success">/order/pendingOrder.jsp</result>
 		</action>
-
+		
+		<!-- 房客 主动添加订单 -->
 		<action name="createOrder" class="controller.OrderAction" method="createOrder">
 			<result name="success">/order/newOrder.jsp</result>
 		</action>
@@ -144,6 +142,17 @@
 		<action name="dealOrder" class="controller.OrderAction" method="dealOrder">
 			<result name="success">/dealOrder/dealOrder.jsp</result>
 		</action>
+		
+		<!-- 统计 -->
+		<!-- 成交总量 -->
+		<action name="orderFinish" class="controller.OrderAction" method="orderFinish">
+			<result name="success">/order/OrderFinish.jsp</result>
+		</action>
+		<!-- 交易记录 -->
+		<action name="orderCount" class="controller.OrderAction" method="orderCount">
+			<result name="success">/order/OrderCount.jsp</result>
+		</action>
+		
 	</package>
 	
 	<!--预定订单的的package  房主-->

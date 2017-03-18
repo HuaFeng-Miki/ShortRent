@@ -15,7 +15,7 @@
     	<p>帮助热线 800-820-8820</p><a href="/ShortRent/login.jsp">登陆</a><a href="/ShortRent/register.jsp">注册</a>
     </c:if>
     <c:if test= "${loginUser.username != null }">
-    	<p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/usermain.jsp">用户界面</a><a href="/ShortRent/actions/logout">注销</a>
+    	<p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/main.jsp">用户界面</a><a href="/ShortRent/actions/logout">注销</a>
     </c:if>
 </nav>
 <div class="content">

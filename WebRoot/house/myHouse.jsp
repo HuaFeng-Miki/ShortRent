@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <nav>
     <h1>Short Rent</h1>
-    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/usermain.jsp">用户界面</a>
+    <p>当前用户：${loginUser.username }</p><a href="/ShortRent/user/main.jsp">用户界面</a>
 </nav>
 <div class="content">
     <h1>Welcome back to Short Rent</h1>

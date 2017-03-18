@@ -30,10 +30,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	   	  	<td>${pager.username}</td>
 	   	  </tr>
 	   	  <tr>
-	   	  	<td>密码：</td>
-	   	  	<td>${pager.password}</td>
-	   	  </tr>
-	   	  <tr>
 	   	  	<td>性别：</td>
 	   	  	<td><c:if test="${pager.sex == 1}">男</c:if>
 	   	  			<c:if test="${pager.sex == 2}">女</c:if>

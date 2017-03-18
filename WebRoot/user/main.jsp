@@ -42,13 +42,13 @@
 				</ul>
 		</div>
 		<div>
-			<h3>我是房东</h3>
+			<h3>我是房主</h3>
 			<ul>
 						<li>
 								<a href="/ShortRent/actions/house/releaseHouse?uId=${loginUser.id}">发布房屋</a>
 						</li>
 						<li>
-								<a href="/ShortRent/actions/order/pendingOrder">受理订单</a>	
+								<a href="/ShortRent/actions/order/pendingOrder?uId=${loginUser.id}">受理订单</a>	
 						</li>
 						<li>
 								<a href="/ShortRent/actions/house/myHouse?uId=${loginUser.id}">我的房屋</a>
@@ -76,21 +76,10 @@
 			<h3>交易记录</h3>
 			<ul>
 						<li>
-								<a href="#">成交订单</a>
+								<a href="/ShortRent/actions/order/orderFinish?uId=${loginUser.id}">成交订单</a>
 						</li>
 						<li>
-								<a href="#">交易记录</a>
-						</li>
-				</ul>
-		</div>
-		<div>
-			<h3>查询统计</h3>
-			<ul>
-						<li>
-							<a href="#">房屋统计</a>
-						</li>
-						<li>
-							<a href="#">订单统计</a>
+								<a href="/ShortRent/actions/order/orderCount?uId=${loginUser.id}">交易记录</a>
 						</li>
 				</ul>
 		</div>

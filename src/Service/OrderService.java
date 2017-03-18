@@ -28,6 +28,19 @@ public class OrderService {
 	public Pagination getdealOrder(long userId, int courrentPageNum,int pageSize){
 		return dao.getdealOrder(userId, courrentPageNum, pageSize);
 	}
+	// 获取房东 全部房子的订单情况
+	public Pagination getPendingOrder(long userId,int courrentPageNum,int pageSize){
+		return dao.getPendingOrder(userId, courrentPageNum, pageSize);
+	}
+	
+	
+	public Pagination getOrderCount(long userId,int courrentPageNum,int pageSize){
+		return dao.getOrderCount(userId,courrentPageNum,pageSize);
+	}
+	
+	public Pagination getOrderFinish(long userId,int courrentPageNum,int pageSize){
+		return dao.getOrderFinish(userId,courrentPageNum,pageSize);
+	}
 	
 	public Order search(long id) throws Exception{
 		return dao.search(id);

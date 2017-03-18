@@ -34,23 +34,21 @@ public class OrderDao extends BaseHibernateDAO{
 	}
 	
 	
-	// 根据用户ID搜索 待处理订单 订单状态为 1
+	// 房客未受理的订单  uid = userId and state = 1
 	public Pagination getnewOrder(long userId,int currentPageNum, int pageSize){
-		Order order = new Order();
-		order.setUserId(userId);
-		order.setState(1L);
 		long rowCount = this.getRowCount(Order.class);
 		//构造pagination对象
 		Pagination pager = new Pagination(rowCount, currentPageNum, pageSize);
-		List list;
+		List list = null;
 		Session session = HibernateSessionFactory.getSession();
 		Transaction tx = session.beginTransaction();
 		try {
-			list= session.createCriteria(Order.class)
-						.add(Example.create(order))
-						.setFirstResult((pager.getcurrentPageNum()-1)*pageSize)
-						.setMaxResults(pageSize)
-						.list();
+			list = session.createQuery("from Order ord where ord.state = :s and ord.userId = :hId")
+					.setLong("s", 1L)
+					.setLong("hId", userId)
+					.setMaxResults((pager.getcurrentPageNum()-1)*pageSize)
+					.list();
+			
 			tx.commit();
 		} catch (RuntimeException re) {
 			throw re;
@@ -61,6 +59,32 @@ public class OrderDao extends BaseHibernateDAO{
 		return pager;
 	}
 	
+	// 房主未受理由房客主动申请的住房订单 userId = uId and state = 1
+	public Pagination getPendingOrder(long userId,int currentPageNum, int pageSize){
+		long rowCount = this.getRowCount(Order.class);
+		//构造pagination对象
+		Pagination pager = new Pagination(rowCount, currentPageNum, pageSize);
+		List list = null;
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		try {
+			list = session.createQuery("from Order o where"
+					+ " o.houseownerId = :p and o.state = :s")
+					.setLong("p",userId)
+					.setLong("s", 1L)
+					.setMaxResults((pager.getcurrentPageNum()-1)*pageSize)
+					.list();
+			
+			tx.commit();
+		} catch (RuntimeException re) {
+			throw re;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
+		pager.setList(list);
+		return pager;
+	}
+		
 	// 根据用户ID搜索 待处理订单 订单状态为2,3,4,5
 	public Pagination getdealOrder(long userId,int currentPageNum, int pageSize){
 			long rowCount = this.getRowCount(Order.class);
@@ -83,4 +107,57 @@ public class OrderDao extends BaseHibernateDAO{
 			pager.setList(list);
 			return pager;
 		}
+	
+
+	// 房主/房客 成交订单 （状态为3的）
+	public Pagination getOrderFinish(long userId,int currentPageNum, int pageSize){
+		long rowCount = this.getRowCount(Order.class);
+		//构造pagination对象
+		Pagination pager = new Pagination(rowCount, currentPageNum, pageSize);
+		List list = null;
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		try {
+			list = session.createQuery("from Order ord where ord.state = :s and ("
+					+ " ord.userId = :p or ord.houseownerId = :p)")
+					.setLong("s", 3L)
+					.setLong("p", userId)
+					.setMaxResults((pager.getcurrentPageNum()-1)*pageSize)
+					.list();
+		
+			tx.commit();
+		} catch (RuntimeException re) {
+			throw re;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
+		pager.setList(list);
+		return pager;
+	}	
+	
+	// 房主/房客 交易记录
+	public Pagination getOrderCount(long userId,int currentPageNum, int pageSize){
+		long rowCount = this.getRowCount(Order.class);
+		//构造pagination对象
+		Pagination pager = new Pagination(rowCount, currentPageNum, pageSize);
+		List list = null;
+		Session session = HibernateSessionFactory.getSession();
+		Transaction tx = session.beginTransaction();
+		try {
+			list = session.createQuery("from Order ord where ord.userId = :p "
+					+ " or ord.houseownerId = :p")
+					.setLong("p", userId)
+					.setMaxResults((pager.getcurrentPageNum()-1)*pageSize)
+					.list();
+		
+			tx.commit();
+		} catch (RuntimeException re) {
+			throw re;
+		} finally {
+			HibernateSessionFactory.closeSession();
+		}
+		pager.setList(list);
+		return pager;
+	}
+
 }

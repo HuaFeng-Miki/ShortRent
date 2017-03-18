@@ -29,6 +29,15 @@
             	<li><a href="/ShortRent/actions/manager/user/showPage">浏览用户信息</a></li>
             	<li><a href="/ShortRent/actions/logout">注销</a></li>
             </ul>
+            <h3>查询统计</h3>
+			<ul>
+						<li>
+							<a href="#">房屋统计</a>
+						</li>
+						<li>
+							<a href="#">订单统计</a>
+						</li>
+				</ul>
     </div>
 </div>
 </body>
